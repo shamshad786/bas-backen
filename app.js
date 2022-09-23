@@ -20,7 +20,17 @@ const port = process.env.PORT || 5002
 mongooseConnect()
 
 app.use(cors());
+
 app.options('*', cors());
+
+app.options('/api/v1/upload', cors());
+
+// app.use((req,res,next)=>{
+//     res.setHeader('Access-Control-Allow-Origin','*');
+//     res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+//     res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+//     next(); 
+// })
 
 //fix  status code 304 not modified request 
 app.disable('etag');
